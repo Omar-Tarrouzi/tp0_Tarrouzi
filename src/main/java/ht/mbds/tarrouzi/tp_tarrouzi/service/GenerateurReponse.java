@@ -24,13 +24,25 @@ public class GenerateurReponse implements Serializable { // Serializable car CDI
      * puis la question en minuscule, le tout entouré de "||".
      */
     public String genererReponse(String question, String roleSysteme) {
-        String resultat = "||";
-        if (!this.roleSystemeAffiche && roleSysteme != null) {
-            // Ajouter le rôle système en majuscule au début du résultat, suivi d'un saut de ligne.
-            resultat += roleSysteme.toUpperCase(Locale.FRENCH) + "\n";
-            this.roleSystemeAffiche = true;
+
+        String mot=question;
+        String inverse= "";
+        String verdict = "";
+        for ( int i=0;i<mot.length();i++){
+            inverse += mot.charAt(mot.length() - 1 - i);
         }
-        resultat += question.toLowerCase(Locale.FRENCH) + "||";
-        return resultat;
+        if (mot.equals(inverse)) {
+             verdict=mot +" est effectivement un palimdrome";}
+        else
+            verdict=mot +"n'est pas un palimdrome...ça se voit  non ?";
+        return verdict;
+//        String resultat = "||";
+//        if (!this.roleSystemeAffiche && roleSysteme != null) {
+//            // Ajouter le rôle système en majuscule au début du résultat, suivi d'un saut de ligne.
+//            resultat += roleSysteme.toUpperCase(Locale.FRENCH) + "\n";
+//            this.roleSystemeAffiche = true;
+//        }
+//        resultat += question.toLowerCase(Locale.FRENCH) + "||";
+//        return resultat;
     }
 }

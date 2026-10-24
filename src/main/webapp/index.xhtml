@@ -23,21 +23,9 @@
 
         <h:form id="form">
 
-            <p:outputLabel for="rolesysteme" value="Rôle de l'API : "/>
-            <!-- La valeur choisie dans cette liste déroulante sera affectée
-            à la propriété systemRole du backing bean. Cette liste est figée (disabled)
-            dès qu'une requête a été envoyée au serveur. -->
-            <p:selectOneMenu id="rolesysteme" value="#{bb.roleSysteme}" editable="true"
-                             required="true" requiredMessage="Vous devez indiquer le rôle de l'API"
-                             disabled="#{! bb.roleSystemeChangeable}">
-                <f:selectItems value="#{bb.rolesSysteme}"/>
-            </p:selectOneMenu>
-            <!-- Message d'erreur ici si l'utilisateur oublie d'indiquer un rôle système. -->
-            <h:message for="rolesysteme" errorStyle="color: red" />
+            <h:outputText value="Détecteur de palindrome"
+                          style="font-weight: bold; font-size: 20px;"/>
 
-            <!-- Si on veut commencer un nouveau chat avec, éventuellement, un autre rôle. -->
-            <h:outputText value="  "/>
-            <h:commandButton value="Nouveau chat" action="#{bb.nouveauChat}" />
 
             <!-- Les éléments de la page sont disposés en deux colonnes :
             question et réponse à gauche et historique de la conversation à droite. -->
